@@ -28,9 +28,9 @@ public class Padovan implements Iterable<BigInteger> {
   public Iterator<BigInteger> iterator() {
 
     return new Iterator<BigInteger>() {
-      private BigInteger lessTwo = BigInteger.ONE;
+      private BigInteger lessTwo = BigInteger.ZERO;
       private BigInteger previous = BigInteger.ONE;
-      private BigInteger current = BigInteger.ONE;
+      private BigInteger current = BigInteger.ZERO;
       private int index = 0;
           
       @Override
