@@ -7,31 +7,29 @@ import java.math.BigInteger;
 import java.util.Iterator;
 
 /**
- * @author Nicholas Bennett
+ * @author Abdul Haseeb Gauba
  *
  */
-public class Fibonacci implements Iterable<BigInteger> {
+public class Padovan implements Iterable<BigInteger> {
 
   private static final int DEFAULT_UPPER = -1;
   
   private final int upper;
   
-  public Fibonacci() {
+  public Padovan() {
     this(DEFAULT_UPPER);
   }
   
-  public Fibonacci(int upper) {
+  public Padovan(int upper) {
     this.upper = upper;
   }
   
   @Override
   public Iterator<BigInteger> iterator() {
-    // return new FibIterator();
-    
-    // Anonymous class implementing the Iterator<BigInteger> interface.
-    return new Iterator<BigInteger>() {
 
-      private BigInteger previous = BigInteger.valueOf(-1);
+    return new Iterator<BigInteger>() {
+      private BigInteger lessTwo = BigInteger.ONE;
+      private BigInteger previous = BigInteger.ONE;
       private BigInteger current = BigInteger.ONE;
       private int index = 0;
           
@@ -42,7 +40,8 @@ public class Fibonacci implements Iterable<BigInteger> {
 
       @Override
       public BigInteger next() {
-        BigInteger next = previous.add(current);
+        BigInteger next = lessTwo.add(previous);
+        lessTwo = previous;
         previous = current;
         current = next;
         index++;
