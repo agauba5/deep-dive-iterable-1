@@ -11,18 +11,12 @@ import java.util.Iterator;
  *
  */
 public class Padovan implements Iterable<BigInteger> {
-
-  private static final int DEFAULT_UPPER = -1;
-  
-  private final int upper;
   
   public Padovan() {
-    this(DEFAULT_UPPER);
+
   }
   
-  public Padovan(int upper) {
-    this.upper = upper;
-  }
+
   
   @Override
   public Iterator<BigInteger> iterator() {
@@ -35,7 +29,7 @@ public class Padovan implements Iterable<BigInteger> {
           
       @Override
       public boolean hasNext() {
-        return upper < 0 || index < upper;
+        return true;
       }
 
       @Override
